@@ -47,4 +47,4 @@
 | badge_url | The URL of the build badge when badge_enabled is enabled |
 | webhook_id | The CodePipeline webhook's ARN. |
 | webhook_url | The CodePipeline webhook's URL. POST events to this endpoint to trigger the target |
-
+| default_role_arn | The CodePipeline role arn |

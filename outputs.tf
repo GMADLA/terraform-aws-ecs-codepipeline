@@ -16,5 +16,5 @@ output "webhook_url" {
 
 output "default_role_arn" {
   description = "The CodePipeline Service Role Arn"
-  value       = "${aws_iam_role.default.arn}"
+  value       = "${join("", aws_iam_role.default.*.arn)}"
 }

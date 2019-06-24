@@ -36,7 +36,7 @@ data "aws_iam_policy_document" "ecs_limited" {
 
   statement {
     actions   = ["sns:publish"]
-    resources = ["${var.code_deploy_sns_topic_arn == "" ? "" : var.code_deploy_sns_topic_arn}"]
+    resources = ["${var.code_deploy_sns_topic_arn == "" ? "" : var.code_deploy_sns_topic_arn}", "arn:aws:sns:*:*:CodeDeployTopic_*"]
     effect    = "Allow"
   }
 
@@ -84,14 +84,8 @@ data "aws_iam_policy_document" "ecs_limited" {
     actions = ["iam:PassRole"]
 
     resources = [
-      "arn:aws:iam::*:role/ecsTaskExecutionRole",
-      "arn:aws:iam::*:role/ECSTaskExecution*"
+      "*"
     ]
-    condition {
-      test     = "StringLike"
-      variable = "iam:PassedToService"
-      values   = ["ecs-tasks.amazonaws.com"]
-    }
   }
 }
 

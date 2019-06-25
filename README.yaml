@@ -5,7 +5,7 @@
 #
 
 # Name of this project
-name: terraform-aws-ecs-codepipeline-bg
+name: terraform-aws-ecs-codepipeline
 
 # Logo for this project
 #logo: docs/logo.png
@@ -53,7 +53,7 @@ related:
 
 # Short description of this project
 description: |-
-  Terraform Module for CI/CD with AWS Code Pipeline using GitHub webhook triggers and Code Build for ECS Blue/Green.
+  Terraform Module for CI/CD with AWS Code Pipeline using GitHub webhook triggers and Code Build for ECS.
 
 # How to use this project
 usage: |-

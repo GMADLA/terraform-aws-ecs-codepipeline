@@ -159,6 +159,8 @@ Available targets:
 | delimiter | Delimiter to be used between `name`, `namespace`, `stage`, etc. | string | `-` | no |
 | ecs_cluster_name | ECS Cluster Name | string | - | yes |
 | enabled | Enable `CodePipeline` creation | string | `true` | no |
+| pipeline_bucket_lifecycle_enabled | Enable bucket lifecycle rules. | string | `false` | no |
+| pipeline_bucket_lifecycle_expiration_days | The amount of days before expiring a bucket object | string | `60` | no |
 | environment_variables | A list of maps, that contain both the key 'name' and the key 'value' to be used as additional environment variables for the build. | list | `<list>` | no |
 | github_oauth_token | GitHub OAuth Token with permissions to access private repositories | string | - | yes |
 | github_webhook_events | A list of events which should trigger the webhook. See a list of [available events](https://developer.github.com/v3/activity/events/types/) | list | `<list>` | no |

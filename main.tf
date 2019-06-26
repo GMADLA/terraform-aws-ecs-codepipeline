@@ -18,6 +18,32 @@ resource "aws_s3_bucket" "default" {
   acl           = "private"
   force_destroy = "${var.s3_bucket_force_destroy}"
   tags          = "${module.codepipeline_label.tags}"
+
+  lifecycle_rule {
+    id      = "code"
+    enabled = "${var.pipeline_bucket_lifecycle_enabled}"
+
+    prefix  = "${format("%s/code/", module.codebuild_label.id)}"
+    noncurrent_version_expiration {
+      days = "${var.pipeline_bucket_lifecycle_expiration_days}"
+    }
+    expiration {
+      days = "${var.pipeline_bucket_lifecycle_expiration_days}"
+    }
+  }
+
+  lifecycle_rule {
+    id      = "task"
+    enabled = "${var.pipeline_bucket_lifecycle_enabled}"
+
+    prefix  = "${format("%s/task/", module.codebuild_label.id)}"
+    noncurrent_version_expiration {
+      days = "${var.pipeline_bucket_lifecycle_expiration_days}"
+    }
+    expiration {
+      days = "${var.pipeline_bucket_lifecycle_expiration_days}"
+    }
+  }
 }
 
 module "codepipeline_assume_label" {

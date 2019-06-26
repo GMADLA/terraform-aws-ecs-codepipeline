@@ -18,6 +18,16 @@ variable "enabled" {
   description = "Enable `CodePipeline` creation"
 }
 
+variable "pipeline_bucket_lifecycle_enabled" {
+  default     = "false"
+  description = "Enable bucket lifecycle rules."
+}
+
+variable "pipeline_bucket_lifecycle_expiration_days" {
+  default     = "60"
+  description = "The amount of days before expiring a bucket object; default:60."
+}
+
 variable "ecs_cluster_name" {
   type        = "string"
   description = "ECS Cluster Name"

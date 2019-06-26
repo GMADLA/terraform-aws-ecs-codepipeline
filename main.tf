@@ -23,7 +23,7 @@ resource "aws_s3_bucket" "default" {
     id      = "code"
     enabled = "${var.pipeline_bucket_lifecycle_enabled}"
 
-    prefix  = "${format("%s/code/", module.codebuild_label.id)}"
+    prefix  = "${format("%.20s/code/", module.codebuild_label.id)}"
     noncurrent_version_expiration {
       days = "${var.pipeline_bucket_lifecycle_expiration_days}"
     }
@@ -36,7 +36,7 @@ resource "aws_s3_bucket" "default" {
     id      = "task"
     enabled = "${var.pipeline_bucket_lifecycle_enabled}"
 
-    prefix  = "${format("%s/task/", module.codebuild_label.id)}"
+    prefix  = "${format("%.20s/task/", module.codebuild_label.id)}"
     noncurrent_version_expiration {
       days = "${var.pipeline_bucket_lifecycle_expiration_days}"
     }
